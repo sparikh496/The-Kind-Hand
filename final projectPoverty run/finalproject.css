@@ -1,0 +1,98 @@
+h1{
+  color: #f2e394;
+  font-size: 80px;
+  text-align: center;
+  font-weight: lighter;
+  padding: 20px;
+  font-family: amatic sc;
+  margin-left: 200px;
+  margin-right: 200px;
+  border: 2px solid #36486b;
+  border-radius: 12px;
+}
+
+
+header {
+  background-color: #36486b;
+  padding: 5px;
+}
+
+h2{
+  color: #d96459;
+  font-size: 55px;
+  text-align: center;
+  padding: 10px;
+
+}
+
+h3 {
+color: #f2e394;
+font-size: 35px;
+text-align: center;
+}
+
+p{
+  color: #d96459;
+  font-size: 30px;
+  text-align: center;
+  padding: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  border: 2px solid #36486b;
+  border-radius: 12px;
+}
+
+#logo {
+  width:20%;
+  height: 20%;
+}
+
+
+#Hands{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    height: 45%;
+    border: 3px solid #d96459;
+
+}
+
+#amigas{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+  height: 45%;
+  border: 2px solid #d96459;
+}
+#hum{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    height: 45%;
+    border: 3px solid #d96459;
+}
+#insta{
+  width: 30%;
+  height: 30%;
+}
+
+#startGame{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  text-decoration: none;
+  float: left;
+  font-size: 16px;
+  margin: 40px 600px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 2px solid #d96459;
+}

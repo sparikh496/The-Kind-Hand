@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title> TheKindHand </title>
+    <link rel="shortcut icon" type="image/png" href="images/handicon.png">
+</div>
+  <header>
+    <style>
+    header {
+      background-color: #800000;
+      padding: 20px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    }
+  </style>
+
+  <div class = 'page'>
+
+    <form method="get"action="home.html">
+      <button class="button"> Home </button>
+    </form>
+    <form method="get"action="story.html">
+      <button class="button"> Story </button>
+    </form>
+    <form method="get"action="donate.html">
+      <button class="button"> Ways To Help</button>
+    </form>
+    <form method="get"action="game2.html">
+      <button class="button"> Game </button>
+    </form>
+    <form method="get"action="aboutus.html">
+      <button class="button"> About Us </button>
+    </form>
+
+</div>
+ <br><br>
+    <h1><div id="headingline" > Poverty Run Game </h1>
+    <!-- <link rel="stylesheet" type="text/css" href="finalproject.css"> -->
+  </header>
+
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+   <link rel="stylesheet" type="text/css" href="finalproject.css">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"/> -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <style>
+   .button {
+       background-color: #4CAF50;
+       border: none;
+       color: white;
+       padding: 30px;
+       text-align: center;
+       text-decoration: none;
+       float: left;
+       font-size: 16px;
+       margin: 5px 3px;
+       -webkit-transition-duration: 0.4s; /* Safari */
+       transition-duration: 0.4s;
+       cursor: pointer;
+       background-color: white;
+       color: black;
+       border: 2px solid #d96459;
+   }
+   .button:hover {
+       background-color: #d96459;
+       color: white;
+   }
+   .button {border-radius: 12px;}
+   .center-align{
+     display:flex;
+     justify-content: center;
+   }
+   .page{
+     margin-left: 325px;
+}
+</style>
+</head>
+<body>
+  <div>
+      <h2> <center> How To Play: </center></h2>
+          </header1>
+      <p>
+      Welcome to Poverty Run. Play as a woman living in poverty. Run through the forest and try to survive as long as possible.
+       Try to gather all of the food and clean water you can. But be careful of the contaminated water drops and disease carrying mosquitoes besarse they are deadly.
+       Use the buttons to avoid and obtain the objects. Press start to play. Good luck and have fun trying to survive.
+      </p>
+
+</body>
+
+
+</div>
+<body1>
+<style>
+canvas {
+  position:relative;
+  top:1400px;
+  left:440px;
+  border:1px solid #d3d3d3;
+  background-color: #f1f1f1;
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<div>
+<button id="startGame" onclick="startGame()" > START </button>
+</div>
+<script>
+var girl;
+var myBackground;
+var yellow;
+var bottle;
+var bug;
+var badwater;
+function startGame() {
+    girl = new component(172, 134, "sprites/walkinggirl.gif", 100, 270, "image");
+    myBackground = new component(960, 440, "sprites/grass.jpg", 0, 0, "background");
+    yellow= new component(40, 40, "sprites/yellow.png", 300, 340, "image");
+    bottle= new component(40, 40, "sprites/bottle.png", 500, 340, "image");
+    bug= new component(50, 40, "sprites/bug.png", 700, 340, "image");
+    badwater= new component(50, 50, "sprites/badwater.png", 900, 340, "image");
+    myGameArea.start();
+}
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 960;
+        this.canvas.height = 440;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+        this.interval = setInterval(updateameArea, 20);
+        this.interval = setInterval(Area, 20);
+        this.interval = setInterval(Area4, 20);
+        this.interval = setInterval(Area5, 20);
+        },
+    // clear : function() {
+    //     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    // },
+    // stop : function() {
+    //     clearInterval(this.interval);
+    // }
+}
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    if (type == "image" || type == "background" ) {
+        this.image = new Image();
+        this.image.src = color;
+    }
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.x = x;
+    this.y = y;
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (type == "image" || type == "background") {
+            ctx.drawImage(this.image,
+                this.x,
+                this.y,
+                this.width, this.height);
+        if (type == "background") {
+            ctx.drawImage(this.image,
+                this.x + this.width,
+                this.y,
+                this.width, this.height);
+        }
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.type == "background") {
+            if (this.x == -(this.width)) {
+                this.x = 0;
+            }
+        }
+    }
+    this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width) - (122);
+        console.log(this.x);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        //console.log(this.y);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        if (myright == otherright){
+          console.log("rights match");
+        }
+        console.log(otherobj.x);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        //console.log(otherobj.y);
+        var crash = true;
+         if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+           crash = false;
+      }
+        return crash;
+    }
+}
+function updateameArea()
+ {
+   if (girl.crashWith(yellow)) {
+            myGameArea.stop();
+           girl.update();
+      } else {
+          yellow.x -= 1;
+          yellow.update();
+           girl.newPos();
+           girl.update();
+             if (yellow.x == 0)
+             {
+               yellow.x = 900;
+               yellow.update();
+             }
+      }
+    }
+// function Area4()
+// {
+//   if (bug.x == 0)
+//   {
+//     bug.x = 900;
+//   }
+//   else
+//   {
+//     bug.x += -1;
+//   }
+//   bug.update();
+// }
+function Area4() {
+  if (girl.crashWith(bug)) {
+            document.write(" YOU DIED")
+            myGameArea.stop();
+           girl.update();
+      } else {
+          bug.x -= 1;
+          bug.update();
+           girl.newPos();
+           girl.update();
+             if (bug.x == 0)
+             {
+               bug.x = 900;
+               bug.update();
+             }
+      }
+    }
+//
+// {
+//   if (badwater.x == 0)
+//   {
+//     badwater.x = 900;
+//   }
+//   else
+//   {
+//     badwater.x += -1;
+//   }
+//   badwater.update();
+// }
+function Area5() {
+  if (girl.crashWith(badwater)) {
+          //myGameArea.stop();
+            document.write(" YOU DIED")
+           girl.update();
+      } else {
+          badwater.x -= 1;
+          badwater.update();
+           girl.newPos();
+           girl.update();
+           if (badwater.x == 0)
+           {
+             badwater.x = 900;
+             badwater.update();
+           }
+      }
+  }
+function Area() {
+  if (girl.crashWith(bottle)) {
+          //myGameArea.stop();
+            bottle.x = 900;
+           girl.update();
+      } else {
+          bottle.x -= 1;
+          bottle.update();
+           girl.newPos();
+           girl.update();
+           if (bottle.x == 0)
+           {
+             bottle.x = 900;
+             bottle.update();
+           }
+      }
+  }
+function updateGameArea() {
+  myBackground.speedX = -1;
+  myBackground.newPos();
+  myBackground.update();
+  if (girl.crashWith(yellow)) {
+          //myGameArea.stop();
+            yellow.x = 900;
+           girl.update();
+      } else {
+          yellow.x -= .3;
+          yellow.update();
+           girl.newPos();
+           girl.update();
+           if (yellow.x == 0)
+           {
+             yellow.x = 900;
+             yellow.update();
+           }
+      }
+  }
+function move(dir) {
+    girl.image.src = "sprites/girl_sprite1.png";
+    if (dir == "up") {girl.speedY = -1; }
+    if (dir == "down") {girl.speedY = 1; }
+    if (dir == "left") {girl.speedX = -1; }
+    if (dir == "right") {girl.speedX = 1; }
+}
+function clearmove() {
+    girl.image.src = "sprites/girl2_sprite2.png";
+    girl.speedX = 0;
+    girl.speedY = 0;
+}
+</script>
+<div style="text-align:center;width:480px; padding-top: 100px;">
+  <button onmousedown="move('up')" onmouseup="clearmove()" ontouchstart="move('up')">UP</button><br><br>
+  <button onmousedown="move('left')" onmouseup="clearmove()" ontouchstart="move('left')">LEFT</button>
+  <button onmousedown="move('right')" onmouseup="clearmove()" ontouchstart="move('right')">RIGHT</button><br><br>
+  <button onmousedown="move('down')" onmouseup="clearmove()" ontouchstart="move('down')">DOWN</button>
+</div>
+
+
+<br><br><Br><br>
+</body1>
+</html>
